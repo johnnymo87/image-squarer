@@ -5,12 +5,12 @@ set -euo pipefail
 outdir=squares
 mkdir -p $outdir
 
-for i in $(find . -name '*.jpg')
+for image in $(find . -name '*.jpg')
 do
-  echo "Squaring $i..."
+  echo "Squaring $image..."
   # https://legacy.imagemagick.org/Usage/thumbnails/#square
-  convert $IMAGE \
+  convert $image \
           \( +clone -rotate 90 +clone -mosaic +level-colors white \) \
-          +swap -gravity center -composite $outdir/$i
+          +swap -gravity center -composite $outdir/$image
 done
 echo "Done"

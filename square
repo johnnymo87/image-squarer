@@ -9,11 +9,9 @@ mkdir $outdir
 for i in *.(jpg|jpeg|png)
 do
   echo "resizing $i..."
-  dimensions=$(magick identify $i | grep -Eo '[0-9]+x[0-9]+' | head -n 1)
-  x=$(echo $dimensions | cut -d'x' -f1)
-  y=$(echo $dimensions | cut -d'x' -f2)
-  max $x $y
-  magick $i -resize $?x$? -background black -compose Copy \
-  -gravity center -extent $?x$? -quality 90 $outdir/$i
+  # https://legacy.imagemagick.org/Usage/thumbnails/#square
+  convert $IMAGE \
+          \( +clone -rotate 90 +clone -mosaic +level-colors white \) \
+          +swap -gravity center -composite $outdir/$i
 done
 echo "done"

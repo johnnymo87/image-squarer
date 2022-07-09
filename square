@@ -8,10 +8,10 @@ mkdir -p $outdir
 
 for i in *.(jpg|jpeg|png)
 do
-  echo "resizing $i..."
+  echo "Squaring $i..."
   # https://legacy.imagemagick.org/Usage/thumbnails/#square
   convert $IMAGE \
           \( +clone -rotate 90 +clone -mosaic +level-colors white \) \
           +swap -gravity center -composite $outdir/$i
 done
-echo "done"
+echo "Done"

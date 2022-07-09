@@ -11,10 +11,12 @@ if [ $# -ne 1 ]; then
 fi
 indir=$1
 
+pushd $indir
+
 outdir=squares
 mkdir -p $outdir
 
-for image in $(find $indir -name '*.jpg')
+for image in $(find . -name '*.jpg')
 do
   echo "Squaring $image..."
   # https://legacy.imagemagick.org/Usage/thumbnails/#square
@@ -22,4 +24,7 @@ do
           \( +clone -rotate 90 +clone -mosaic +level-colors white \) \
           +swap -gravity center -composite $outdir/$image
 done
+
+popd
+
 echo "Done"

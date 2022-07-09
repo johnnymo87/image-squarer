@@ -1,7 +1,10 @@
 #!/bin/bash
 
-IFS=$'\n'
 set -euo pipefail
+
+# Handle spaces in path and file names.
+# https://unix.stackexchange.com/a/9499
+IFS=$'\n'
 
 # Make sure we've been called with an indir
 # https://stackoverflow.com/a/3945952

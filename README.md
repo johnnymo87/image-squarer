@@ -6,7 +6,6 @@
 
 1. Install [Homebrew](https://brew.sh/)
 2. run `brew install imagemagick ghostscript`
-3. `chmod` the script so it can be executed
 4. add the `square` script to your PATH
 
 ## How to use

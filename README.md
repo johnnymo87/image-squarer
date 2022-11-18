@@ -1,6 +1,6 @@
 # Image Squarer
 
-Takes any jpg images in a folder and drops them in an 'sqaures' subfolder as a new image composed over a white square.
+Takes any jpg or png images in a folder and drops them in an 'sqaures' subfolder as a new image composed over a white square.
 
 ## Setup
 

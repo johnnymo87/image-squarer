@@ -19,7 +19,7 @@ pushd $indir
 outdir=squares
 mkdir -p $outdir
 
-for image in $(find . -name '*.jpg')
+for image in $(find . -name '*.jpg' -o -name '*.png')
 do
   echo "Squaring $image..."
   # https://legacy.imagemagick.org/Usage/thumbnails/#square
